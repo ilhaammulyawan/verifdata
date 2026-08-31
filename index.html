@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Portal Akademik</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 350px;
+            text-align: center;
+        }
+        .login-container h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #666;
+            font-size: 14px;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box; /* Agar padding tidak melebarkan input */
+        }
+        .btn-login {
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            width: 100%;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        .btn-login:hover {
+            background-color: #004494;
+        }
+        .warning-box {
+            display: none;
+            background-color: #ffdddd;
+            border-left: 6px solid #f44336;
+            margin-top: 20px;
+            padding: 15px;
+            text-align: left;
+        }
+        .warning-box h4 {
+            margin: 0 0 10px 0;
+            color: #f44336;
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-container">
+    <!-- Kamu bisa ganti teks ini atau tambahkan tag <img> untuk logo sekolah -->
+    <h2>Sistem Informasi Akademik</h2>
+    <p style="color: #777; font-size: 14px; margin-bottom: 20px;">Silakan login untuk memverifikasi data Anda.</p>
+    
+    <form id="phishingForm">
+        <div class="input-group">
+            <label for="username">Username / NIP / NISN</label>
+            <input type="text" id="username" required>
+        </div>
+        <div class="input-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" required>
+        </div>
+        <button type="submit" class="btn-login">Login Sekarang</button>
+    </form>
+
+    <div class="warning-box" id="warningBox">
+        <h4>🚨 GOTCHA! Ini Simulasi Phishing!</h4>
+        <p style="font-size: 13px; color: #333;">Data Anda tidak benar-benar dikirim. Ini adalah simulasi keamanan digital. Perhatikan <strong>URL di address bar</strong> Anda. Apakah itu domain resmi sekolah?</p>
+    </div>
+</div>
+
+<script>
+    // Mencegah form melakukan pengiriman data sungguhan
+    document.getElementById('phishingForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Menghentikan proses submit
+        
+        // Menampilkan pesan edukasi
+        document.getElementById('warningBox').style.display = 'block';
+        
+        // Mengosongkan isian form
+        document.getElementById('username').value = '';
+        document.getElementById('password').value = '';
+    });
+</script>
+
+</body>
+</html>
